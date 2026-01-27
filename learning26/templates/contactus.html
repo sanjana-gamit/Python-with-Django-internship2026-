@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #141e30, #243b55);
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Navbar */
+        nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        nav a {
+            text-decoration: none;
+            color: white;
+            font-size: 16px;
+            padding: 8px 14px;
+            border-radius: 20px;
+            transition: 0.3s ease;
+        }
+
+        nav a:hover {
+            background: #00e5ff;
+            color: black;
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+        }
+
+        h1 {
+            font-size: 36px;
+            margin-bottom: 15px;
+            color: #00e5ff;
+        }
+
+        p {
+            font-size: 17px;
+            line-height: 1.7;
+            opacity: 0.9;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: auto;
+            background: rgba(0, 0, 0, 0.6);
+            text-align: center;
+            padding: 15px;
+            font-size: 14px;
+            opacity: 0.85;
+        }
+
+        footer span {
+            color: #00e5ff;
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 28px;
+            }
+
+            .container {
+                margin: 60px 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <a href="home">Home</a>
+        <a href="about">About</a>
+        <a href=" ">Contact</a>
+        <a href="movies">Movies</a>
+        <a href="shows">Shows</a>
+        <a href="news">News</a>
+    </nav>
+
+    <div class="container">
+        <h1>Contact Us</h1>
+        <p>Feel free to reach out to us for any inquiries or support. We’d love to hear from you!</p>
+    </div>
+
+    <footer>
+        © 2026 <span>My Website</span> • All Rights Reserved
+    </footer>
+
+</body>
+</html>

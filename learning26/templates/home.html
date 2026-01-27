@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+      }
+
+      body {
+        background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+        color: white;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+
+      /* Navbar */
+      nav {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 20px;
+        padding: 15px;
+        background: rgba(0, 0, 0, 0.5);
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+      }
+
+      nav a {
+        text-decoration: none;
+        color: white;
+        font-size: 16px;
+        padding: 8px 16px;
+        border-radius: 25px;
+        transition: all 0.3s ease;
+      }
+
+      nav a:hover {
+        background: #00e5ff;
+        color: black;
+        transform: translateY(-2px);
+      }
+
+      /* Content */
+      .container {
+        flex: 1;
+        text-align: center;
+        margin-top: 120px;
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: 46px;
+        margin-bottom: 15px;
+        color: #00e5ff;
+      }
+
+      p {
+        font-size: 18px;
+        line-height: 1.7;
+        max-width: 600px;
+        margin: auto;
+        opacity: 0.9;
+      }
+
+      /* Footer */
+      footer {
+        background: rgba(0,0,0,0.65);
+        text-align: center;
+        padding: 15px 10px;
+        font-size: 14px;
+        letter-spacing: 0.4px;
+        border-top: 1px solid rgba(255,255,255,0.08);
+      }
+
+      footer span {
+        color: #00e5ff;
+      }
+
+      /* Mobile Responsive */
+      @media (max-width: 768px) {
+        h1 {
+          font-size: 32px;
+        }
+
+        nav {
+          gap: 12px;
+        }
+
+        nav a {
+          font-size: 14px;
+          padding: 6px 12px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <nav>
+      <a href=" ">Home</a>
+      <a href="about">About</a>
+      <a href="contact">Contact</a>
+      <a href="Movies">Movies</a>
+      <a href="shows">Shows</a>
+      <a href="news">News</a>
+    </nav>
+
+    <div class="container">
+      <h1>Welcome to my Website</h1>
+      <p>This is the home page. Explore our site to learn more about us.</p>
+    </div>
+
+    <footer>
+      <p>© 2026 <span>MyWebsite</span> | Designed with ❤️</p>
+    </footer>
+
+  </body>
+</html>
