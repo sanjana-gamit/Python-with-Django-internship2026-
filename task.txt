@@ -1,5 +1,0 @@
-create aboutus contactus , home pages
-task:
-create a contactus with basic css design... <style></style>
-
-create movies, shows, news:
