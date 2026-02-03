@@ -15,8 +15,9 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import include, path
 from . import views
+
 #from views import test
 
 #localhost:8000/test/
@@ -32,5 +33,8 @@ urlpatterns = [
     #http://127.0.0.1:8000/recap/
     path("recap/",views.recape),
     path("recipe/",views.recipe),
-    path("team/",views.team)
+    path("team/",views.team),
+
+    #app level url config
+    path("students/", include("students.urls"))
 ]
