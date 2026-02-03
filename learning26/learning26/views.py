@@ -25,3 +25,16 @@ def shows(request):
 
 def news(request):
     return render(request,"news.html")
+
+def recape(request):
+    return render(request,"recape.html")
+
+def recipe(request):
+    ingredient = ["Salt","Sugar","Spices","Vegetables"]
+    data = { "name": "Pasta", "time": 20, "ingredient": ingredient}
+    return render(request,"recipe.html",data)
+
+def team(request):
+    
+    data = { "teamName": "India", "cap": "Rohit Sharma", "playerList": ["Virat", "Gill", "Jadeja", "Bumrah"], "trophy": 3}
+    return render(request,"team.html",data)

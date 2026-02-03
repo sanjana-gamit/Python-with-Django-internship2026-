@@ -28,5 +28,9 @@ urlpatterns = [
     path("Movies/",views.Movies),
     path("shows/",views.shows),
     path("news/",views.news),
-    path("",views.home)
+    path("",views.home),
+    #http://127.0.0.1:8000/recap/
+    path("recap/",views.recape),
+    path("recipe/",views.recipe),
+    path("team/",views.team)
 ]
