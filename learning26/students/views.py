@@ -1,7 +1,5 @@
 from django.shortcuts import render
 
-from learning26 import students
-
 
 # Create your views here.
 def studentHome(request):
