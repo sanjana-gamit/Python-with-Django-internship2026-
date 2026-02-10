@@ -13,13 +13,22 @@
             <th>Employee Age</th>
             <th>Employee City</th>
             <th>Employee Email</th>
+            <th>Employee Post</th>
+            <th>Employee Join Date</th>
+            <th>Employee Salary</th>
+            <th>Employee Id</th>
         </tr>
         {% for employee in employees %}
         <tr>
-            <td>{{ employee.employeeName }}</td>
-            <td>{{ employee.employeeAge }}</td>
-            <td>{{ employee.employeeCity }}</td>
-            <td>{{ employee.employeeEmail }}</td>
+            <td>{{ employee.name }}</td>
+            <td>{{ employee.age }}</td>
+            <td>{{ employee.city }}</td>
+            <td>{{ employee.email }}</td>
+            <td>{{ employee.post }}</td>
+            <td>{{ employee.join_date }}</td>
+            <td>{{ employee.salary }}</td>
+            <td>{{ employee.id }}</td>
+
         </tr>
         {% endfor %}
     </table>

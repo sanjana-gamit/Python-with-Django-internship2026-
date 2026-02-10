@@ -11,11 +11,11 @@ def employeeList(request):
 
 def employeeFilter(request):
     #where select  from employee where name = "raj"
-    employee = Employee.objects.filter(name ="rohit").values()
+    employee = Employee.objects.filter(name ="Rohit").values()
     #selet  from employee where post = "Developer"
     employee2 = Employee.objects.filter(post ="Vise president").values()
     #select  from employee where name = "raj" and post = "Developer"
-    employee3 = Employee.objects.filter(name ="rohit",post ="Vise president").values()
+    employee3 = Employee.objects.filter(name ="Rohit",post ="Vise president").values()
 
     #>23
     #seelct  from employee where age > 23
@@ -29,7 +29,7 @@ def employeeFilter(request):
     employee6 = Employee.objects.filter(post__exact="HR").values()
     employee7 = Employee.objects.filter(post__iexact="Manager").values()
     #contains
-    employee8 = Employee.objects.filter(name__contains="r").values()
+    employee8 = Employee.objects.filter(name__contains="R").values()
     employee9 = Employee.objects.filter(name__icontains="R").values()
 
     #startswith endswith
@@ -39,7 +39,7 @@ def employeeFilter(request):
     employee13 = Employee.objects.filter(name__iendswith="R").values()
 
     #in
-    employee14 = Employee.objects.filter(name__in=["rohit","samir"]).values()    
+    employee14 = Employee.objects.filter(name__in=["Rohit","Samir"]).values()    
 
     #range
     employee15 = Employee.objects.filter(age__range=[24,30]).values()    
