@@ -1,3 +1,4 @@
+from unittest.util import _MAX_LENGTH
 from django.db import models
 
 # Create your models here.
@@ -14,6 +15,9 @@ class Student(models.Model):
 #meta class
     class Meta:
         db_table = "student"
+    
+    def __str__(self):
+        return self.studentName
 
 class Product(models.Model):
     productName = models.CharField(max_length=100)
@@ -45,6 +49,50 @@ class StudentCourse(models.Model):
     
     class Meta:
         db_table = "studentcourse"
+
+hobbies =[("reading","reading"), ("Writing", "Writing"), ("Travel","Travel"), ("Music","Music")]
+class StudentProfile(models.Model):
+    studentid = models.OneToOneField(Student,on_delete=models.CASCADE)
+    studentHobbies = models.CharField(max_length=100,choices=hobbies)
+    studentAddress = models.CharField(max_length=100)
+    studentPhone = models.CharField(max_length=10)
+    studentGender = models.CharField(max_length=10)
+    studentDOB = models.DateField()
+
+    class Meta:
+        db_table = "studentprofile"
+    
+    def __str__(self):
+        return self.studentId.studentName
+
+class Category(models.Model):
+    categoryName = models.CharField(max_length=100)
+    categoryDescription = models.TextField()
+    categoryStatus = models.BooleanField(default=True)
+
+    class Meta:
+        db_table = "category"
+
+    def __str__(self):
+        return self.categoryName
+
+class Service(models.Model):
+    serviceName = models.CharField(max_length=100)
+    serviceDescription = models.TextField()
+    servicePrice = models.IntegerField()
+    serviceStatus = models.BooleanField(default=True)
+    discount = models.IntegerField(null=True)
+    categoryId = models.ForeignKey(Category,on_delete=models.CASCADE)
+
+    class Meta:
+        db_table = "service"
+
+    def __str__(self):
+        return self.serviceName
+
+
+
+
     
 
 
