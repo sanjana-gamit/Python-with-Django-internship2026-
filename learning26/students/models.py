@@ -30,29 +30,9 @@ class Product(models.Model):
     class Meta:
         db_table = "product"
 
-
-class StudentResult(models.Model):
-    studentId = models.IntegerField()
-    studentName = models.CharField(max_length=100)
-    studentMarks = models.IntegerField()
-    studentGrade = models.CharField(max_length=10)
-    studentStatus = models.BooleanField(default=True)
-    
-    class Meta:
-        db_table = "studentresult"
-
-class StudentCourse(models.Model):
-    studentId = models.IntegerField()
-    studentName = models.CharField(max_length=100)
-    studentCourse = models.CharField(max_length=100)
-    studentStatus = models.BooleanField(default=True)
-    
-    class Meta:
-        db_table = "studentcourse"
-
 hobbies =[("reading","reading"), ("Writing", "Writing"), ("Travel","Travel"), ("Music","Music")]
 class StudentProfile(models.Model):
-    studentid = models.OneToOneField(Student,on_delete=models.CASCADE)
+    studentId = models.OneToOneField(Student,on_delete=models.CASCADE)
     studentHobbies = models.CharField(max_length=100,choices=hobbies)
     studentAddress = models.CharField(max_length=100)
     studentPhone = models.CharField(max_length=10)
@@ -64,6 +44,22 @@ class StudentProfile(models.Model):
     
     def __str__(self):
         return self.studentId.studentName
+
+class StudentResult(models.Model):
+    studentId = models.ForeignKey(Student, on_delete=models.CASCADE)
+    studentMarks = models.IntegerField()
+    studentGrade = models.CharField(max_length=10)
+    studentStatus = models.BooleanField(default=True)    
+    class Meta:
+        db_table = "studentresult"
+
+class StudentCourse(models.Model):
+    studentId = models.ForeignKey(Student, on_delete=models.CASCADE)
+    studentCourse = models.CharField(max_length=100)
+    studentStatus = models.BooleanField(default=True)
+
+    class Meta:
+        db_table = "studentcourse"
 
 class Category(models.Model):
     categoryName = models.CharField(max_length=100)
@@ -82,13 +78,36 @@ class Service(models.Model):
     servicePrice = models.IntegerField()
     serviceStatus = models.BooleanField(default=True)
     discount = models.IntegerField(null=True)
-    categoryId = models.ForeignKey(Category,on_delete=models.CASCADE)
+    category = models.ForeignKey(Category,on_delete=models.CASCADE)
 
     class Meta:
         db_table = "service"
 
     def __str__(self):
         return self.serviceName
+
+class StudentIDCard(models.Model):
+    studentId = models.OneToOneField(Student, on_delete=models.CASCADE)
+    cardNumber = models.CharField(max_length=20)
+    issueDate = models.DateField()
+
+    class Meta:
+        db_table = "studentidcard"
+
+class StudentParent(models.Model):
+    studentId = models.OneToOneField(Student, on_delete=models.CASCADE)
+    fatherName = models.CharField(max_length=100)
+    motherName = models.CharField(max_length=100)
+
+    class Meta:
+        db_table = "studentparent"
+  
+class StudentAttendance(models.Model):
+    student = models.ForeignKey(Student, on_delete=models.CASCADE)
+    date = models.DateField()
+    status = models.BooleanField(default=True)
+
+
 
 
 

@@ -36,5 +36,6 @@ urlpatterns = [
     path("team/",views.team),
 
     #app level url config
-    path("students/", include("students.urls"))
+    path("students/", include("students.urls")),
+    path("employee/", include("employee.urls"))
 ]
