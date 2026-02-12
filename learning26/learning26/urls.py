@@ -38,4 +38,5 @@ urlpatterns = [
     #app level url config
     path("students/", include("students.urls")),
     path("employee/", include("employee.urls"))
+    
 ]

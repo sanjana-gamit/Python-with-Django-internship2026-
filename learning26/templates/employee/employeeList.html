@@ -6,31 +6,37 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Employee List</h1>
-    <table>
+    <h1>EMPLOYEE LIST</h1>
+<a href="{% url 'createEmployeeWithForm'%}">CREATE EMPLOYEE<a/>
+<a href ="{% url 'filterEmployee' %}">FILTER</a>    
+<table>
+    <thead>
         <tr>
-            <th>Employee Name</th>
-            <th>Employee Age</th>
-            <th>Employee City</th>
-            <th>Employee Email</th> 
-            <th>Employee Post</th>
-            <th>Employee Join Date</th>
-            <th>Employee Salary</th>
-            <th>Employee Id</th>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Salary</th>
+            <th>Join Date</th>
+            <th>Post</th>
+            <th>Actions</th>
         </tr>
-        {% for employee in employees %}
+    </thead>
+    <tbody>
+        {% for emp in employees  %}
         <tr>
-            <td>{{ employee.name }}</td>
-            <td>{{ employee.age }}</td>
-            <td>{{ employee.city }}</td>
-            <td>{{ employee.email }}</td>
-            <td>{{ employee.post }}</td>
-            <td>{{ employee.join_date }}</td>
-            <td>{{ employee.salary }}</td>
-            <td>{{ employee.id }}</td>
-
+            <td>{{emp.id}}</td>
+            <td>{{emp.name}}</td>
+            <td>{{emp.age}}</td>
+            <td>{{emp.salary}}</td>
+            <td>{{emp.join_date}}</td>
+            <td>{{emp.post}}</td>
+            <td>
+                {% comment %} <a href="{% url 'deleteEmployee' %}">DELETE</a> {% endcomment %}
+                 <a href = "{% url 'deleteEmployee' emp.id %}">DELETE</a>
+            </td>
         </tr>
         {% endfor %}
-    </table>
+    </tbody>
+</table>
 </body>
 </html>

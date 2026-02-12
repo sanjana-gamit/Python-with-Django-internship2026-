@@ -1,10 +1,11 @@
-from django.shortcuts import render
+from django.shortcuts import render, HttpResponse
 from .models import Employee
+from .forms import EmployeeForm,CourseForm
 
 # Create your views here.
 def employeeList(request):
     #employees = Employee.objects.all() #select * from employee
-    employees = Employee.objects.all()
+    employees = Employee.objects.all().values()
     #employees = Employee.objects.all().values_list()
     print(employees)
     return render(request, 'employee/employeeList.html',{"employees":employees})
@@ -73,3 +74,48 @@ def employeeFilter(request):
     print("query 17",employee17) 
     print("query 18",employee18) 
     return render(request, 'employee/employeeFilter.html')
+
+def createEmployee(request):
+    name = "Ayaan"
+    age = 21
+    city = "Delhi"
+    email = "ayaan@gmail.com"
+    salary = 50000
+    status = True
+    post = "Manager"
+    join_date = "2022-01-01"
+    Employee.objects.create(name=name,age=age,city=city,email=email,salary=salary,status=status,post=post,join_date=join_date)
+    
+    return HttpResponse("Create Employee")
+
+def createEmployeeWithForm(request):
+    print(request.method)
+    if request.method == "POST":
+        form = EmployeeForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponse("Employee created successfully")
+    else:
+        form = EmployeeForm()
+    return render(request, 'employee/createEmployeeWithForm.html', {'form': form})
+
+def createCourse(request):
+    if request.method == "POST":
+        form = CourseForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponse("Course created successfully")
+    else:
+        form = CourseForm()
+    return render(request, 'employee/createCourse.html', {'form': form})
+
+def deleteEmployee(request,id):
+   print("id from url =",id)
+   Employee.objects.filter(id=id).delete()
+   return redirect("employeeList")
+
+def filterEmployee(request):
+    print("filter employee called....")
+    employees = Employee.objects.filter(age__gt=23).values()
+    print("filter employee =",employees)
+    return render(request, 'employee/employeeFilter.html', {'employees': employees})
