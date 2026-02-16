@@ -115,7 +115,7 @@ def updateEmployee(request,id):
     if request.method == "POST":
         form = EmployeeForm(request.POST,instance=employee)
         form.save()
-        return redirect("employeeList")
+        return redirect("employee:employeeList")
     else:
         form = EmployeeForm(instance=employee)
     return render(request, 'employee/updateEmployee.html', {'form': form})
