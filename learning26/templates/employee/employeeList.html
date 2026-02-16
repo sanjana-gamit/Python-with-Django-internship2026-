@@ -7,8 +7,8 @@
 </head>
 <body>
     <h1>EMPLOYEE LIST</h1>
-<a href="{% url 'createEmployeeWithForm'%}">CREATE EMPLOYEE<a/>
-<a href ="{% url 'filterEmployee' %}">FILTER</a>    
+<a href="{% url 'employee:createEmployeeWithForm'%}">CREATE EMPLOYEE<a/>
+<a href ="{% url 'employee:employeeFilter' %}">FILTER</a>    
 <table>
     <thead>
         <tr>
@@ -32,7 +32,8 @@
             <td>{{emp.post}}</td>
             <td>
                 {% comment %} <a href="{% url 'deleteEmployee' %}">DELETE</a> {% endcomment %}
-                 <a href = "{% url 'deleteEmployee' emp.id %}">DELETE</a>
+                 <a href = "{% url 'employee:deleteEmployee' emp.id %}">DELETE</a>
+                 <a href = "{% url 'employee:updateEmployee' emp.id %}">UPDATE</a>
             </td>
         </tr>
         {% endfor %}

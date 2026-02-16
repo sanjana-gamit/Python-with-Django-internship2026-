@@ -1,26 +1,18 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, HttpResponse, redirect, render
 from .models import Employee
 from .forms import EmployeeForm,CourseForm
 
 # Create your views here.
 def employeeList(request):
-    #employees = Employee.objects.all() #select * from employee
-    employees = Employee.objects.all().values()
-    #employees = Employee.objects.all().values_list()
-    print(employees)
-    return render(request, 'employee/employeeList.html',{"employees":employees})
+   employees = Employee.objects.all().values()
+   print(employees)
+   return render(request, 'employee/employeeList.html',{"employees":employees})
 
 def employeeFilter(request):
-    #where select  from employee where name = "raj"
     employee = Employee.objects.filter(name ="Rohit").values()
-    #selet  from employee where post = "Developer"
     employee2 = Employee.objects.filter(post ="Vise president").values()
-    #select  from employee where name = "raj" and post = "Developer"
     employee3 = Employee.objects.filter(name ="Rohit",post ="Vise president").values()
 
-    #>23
-    #seelct  from employee where age > 23
-    #employee4 = Employee.objects.filter(age>23).values()
     employee4 = Employee.objects.filter(age__gt=23).values()
     employee5 = Employee.objects.filter(age__gte=23).values()
 
@@ -50,8 +42,6 @@ def employeeFilter(request):
     employee17 = Employee.objects.order_by("-age").values()    #desc
 
     employee18 = Employee.objects.order_by("-salary").values()    #desc
-
-    
 
 
     #and
@@ -94,7 +84,7 @@ def createEmployeeWithForm(request):
         form = EmployeeForm(request.POST)
         if form.is_valid():
             form.save()
-            return HttpResponse("Employee created successfully")
+            return redirect("employeeList") 
     else:
         form = EmployeeForm()
     return render(request, 'employee/createEmployeeWithForm.html', {'form': form})
@@ -119,3 +109,13 @@ def filterEmployee(request):
     employees = Employee.objects.filter(age__gt=23).values()
     print("filter employee =",employees)
     return render(request, 'employee/employeeFilter.html', {'employees': employees})
+
+def updateEmployee(request,id):
+    employee = Employee.objects.get(id=id)
+    if request.method == "POST":
+        form = EmployeeForm(request.POST,instance=employee)
+        form.save()
+        return redirect("employeeList")
+    else:
+        form = EmployeeForm(instance=employee)
+    return render(request, 'employee/updateEmployee.html', {'form': form})
