@@ -119,3 +119,15 @@ def updateEmployee(request,id):
     else:
         form = EmployeeForm(instance=employee)
     return render(request, 'employee/updateEmployee.html', {'form': form})
+
+def sortemployeesAsc(request):
+  employees = Employee.objects.order_by("age")
+  return render(request, "employee/employeeList.html", {
+    "employees": employees
+  })
+
+def sortemployeesDesc(request):
+  employees = Employee.objects.order_by("-age")
+  return render(request, "employee/employeeList.html", {
+    "employees": employees
+  })

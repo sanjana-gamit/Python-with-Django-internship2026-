@@ -9,6 +9,7 @@
     <h1>EMPLOYEE LIST</h1>
 <a href="{% url 'employee:createEmployeeWithForm'%}">CREATE EMPLOYEE<a/>
 <a href ="{% url 'employee:employeeFilter' %}">FILTER</a>    
+
 <table>
     <thead>
         <tr>
@@ -39,5 +40,7 @@
         {% endfor %}
     </tbody>
 </table>
+<a href="{% url 'employee:sortemployeesAsc' %}">Sort ASC</a> |
+<a href="{% url 'employee:sortemployeesDesc' %}">Sort DESC</a>
 </body>
 </html>
