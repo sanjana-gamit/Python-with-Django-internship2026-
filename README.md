@@ -1,8 +1,10 @@
 
 🛠️Internship Task & Implementation Repository
+
 This repository is a dedicated log of my technical implementation and task performance during my Python with Django Internship (2026). It serves as a live record of all coding assignments, practice modules, and project commits.
 
 🎯 Objective
+
 The sole purpose of this repository is to track daily internship work, perform technical tasks, and maintain a clean commit history of my progress in Python, Django, and PostgreSQL.
 
 ## 🛠️ Tech Stack
@@ -18,11 +20,19 @@ The sole purpose of this repository is to track daily internship work, perform t
 ![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)
 
 📈 Work Performance & Workflow
+
 My internship workflow follows a strict commit-based performance cycle:
+
 Task Analysis: Reviewing the daily internship assignment or project module.
+
 Implementation: Developing the solution using the MVT pattern.
+
 Models: Defining the database schema for the task.
+
 Views: Implementing the business logic and data processing.
+
 Templates: Creating the frontend for user interaction.
+
 Database Migration: Applying changes to PostgreSQL via Django Migrations.
+
 Commit: Saving the work with descriptive messages to track performance.
