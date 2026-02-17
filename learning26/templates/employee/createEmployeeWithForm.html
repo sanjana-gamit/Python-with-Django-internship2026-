@@ -1,9 +1,10 @@
-<!DOCTYPE html>
+{% extends 'base.html' %}
+{% block content %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Create Employee</title>
 </head>
 <body>
     <h1>Create Employee</h1>
@@ -11,7 +12,11 @@
     <form action="" method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        <input type="submit" value="Submit">
+        <button class="btn-primary" type="submit">Submit</button>
     </form>
+     <a href="{% url 'employee:employeeList' %}" class="back-link">
+            ← Back to Employee List
+        </a>
 </body>
 </html>
+{% endblock content %}

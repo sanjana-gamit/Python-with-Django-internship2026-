@@ -84,7 +84,7 @@ def createEmployeeWithForm(request):
         form = EmployeeForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect("employeeList") 
+            return redirect("employee:employeeList") 
     else:
         form = EmployeeForm()
     return render(request, 'employee/createEmployeeWithForm.html', {'form': form})
@@ -102,7 +102,7 @@ def createCourse(request):
 def deleteEmployee(request,id):
    print("id from url =",id)
    Employee.objects.filter(id=id).delete()
-   return redirect("employeeList")
+   return redirect("employee:employeeList")
 
 def filterEmployee(request):
     print("filter employee called....")

@@ -1,0 +1,26 @@
+<nav class="navbar">
+    <div class="nav-container">
+        <div class="logo">
+            <a href="/">DjangoApp</a>
+        </div>
+
+        <ul class="nav-links">
+            <li>
+                <a href="{% url 'employee:createEmployeeWithForm' %}">
+                    Create Employee
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'employee:employeeList' %}">
+                    Employee List
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'employee:createCourse' %}">Create Course</a>
+            </li>
+            <li>
+                <a href="{% url 'employee:employeeFilter' %}">Filter</a>
+            </li>
+        </ul>
+    </div>
+</nav>
