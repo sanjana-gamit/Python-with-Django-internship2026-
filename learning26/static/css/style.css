@@ -62,6 +62,24 @@
     width: 100%;
 }
 
+.page-title {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.action-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 16px 20px;
+    margin-bottom: 25px;
+    border-radius: 10px;
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+    flex-wrap: wrap;
+}
 
 .content {
     text-align: center;
@@ -147,21 +165,84 @@ form input:focus {
     border-color: #38bdf8;
 }
 
-.btn-primary {
-    width: 100%;
-    margin-top: 10px;
-    padding: 10px;
-    background: #38bdf8;
-    border: none;
-    color: #ffffff;
-    font-size: 15px;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background 0.3s;
+.page-title {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 18px;
 }
 
-.btn-primary:hover {
-    background: #0ea5e9;
+/* Main container */
+.cute-action-bar {
+    display: flex;
+    gap: 14px;
+    padding: 14px 16px;
+    border-radius: 14px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    align-items: center;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+}
+
+/* Individual box */
+.action-card {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 10px 16px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    white-space: nowrap;
+
+    background: #ffffff;
+    color: #0f172a;
+    border: 1px solid #e5e7eb;
+
+    transition: all 0.25s ease;
+}
+
+/* Hover = cute pop */
+.action-card:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+/* Variants */
+.action-card.create {
+    border-left: 4px solid #22c55e;
+}
+
+.action-card.filter {
+    border-left: 4px solid #3b82f6;
+}
+
+.action-card.sort {
+    border-left: 4px solid #a855f7;
+}
+
+/* 🔥 ACTIVE (dynamic) */
+.action-card.active {
+    background: linear-gradient(135deg, #eef2ff, #fdf4ff);
+    box-shadow: 0 0 0 3px rgba(99,102,241,0.35);
+    transform: translateY(-2px);
+}
+
+/* Emoji sizing */
+.action-card span {
+    font-weight: 600;
+}
+
+/* Smooth scroll on small screens */
+.cute-action-bar::-webkit-scrollbar {
+    height: 6px;
+}
+
+.cute-action-bar::-webkit-scrollbar-thumb {
+    background: #cbd5f5;
+    border-radius: 3px;
 }
 
 .back-link {
