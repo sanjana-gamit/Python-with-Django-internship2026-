@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block content %}
+{% include 'usernavbar.html' %}
+
+<div class="services-grid">
+
+{% for service in students %}
+  {% if service.serviceStatus %}
+  <div class="service-card">
+
+     <a href="{% url 'students:createStudent' %}">Create Student</a>
+
+      <div class="card-image">
+        <img src="https://via.placeholder.com/400x300" alt="{{ service.serviceName }}">
+      </div>
+
+        <h3 class="service-title">
+          {{ services.serviceName }}
+        </h3>
+
+        <p class="service-desc">
+          {{ services.serviceDescription|truncatechars:90 }}
+        </p>
+
+        <div class="service-meta">
+          <div>
+            {% if services.discount %}
+              <span class="old-price">₹{{ services.servicePrice }}</span>
+              <span class="price">
+                ₹{{ services.servicePrice|floatformat:0|add:"-" }}
+              </span>
+            {% else %}
+              <span class="price">₹{{ services.servicePrice }}</span>
+            {% endif %}
+          </div>
+
+          {% if services.discount %}
+            <span class="discount">{{ services.discount }}% OFF</span>
+          {% endif %}
+        </div>
+      </div>
+      {% endif %}
+{% empty %}
+  <p class="no-data">No services available right now 🚫</p>
+{% endfor %}
+
+</div>
+
+{% endblock content %}

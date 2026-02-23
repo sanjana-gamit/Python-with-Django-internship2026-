@@ -1,16 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Service Form</title>
-</head>
-<body>
-    <form method="POST">
-    {% csrf_token %}
-    {{form}}
-    <input type="submit" value="submit">
-</form>
-<a href="{% url 'services:service_list' %}">Service List</a>
-</body>
-</html>
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="card shadow-lg p-4 rounded-4">
+        <h3 class="text-center mb-4 fw-bold">🚀 Add Service</h3>
+
+        <form method="POST">
+            {% csrf_token %}
+            {{ form|crispy }}
+
+            <div class="d-grid mt-4">
+                <button type="submit" class="btn btn-primary btn-lg rounded-pill">
+                    Save Service
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

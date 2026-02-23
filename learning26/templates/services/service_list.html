@@ -1,36 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Service List</title>
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block title %}Service List{% endblock %}
+
+{% block content %}
     <h2>Service List</h2>
 
-<a href="{% url 'services:service_create' %}">Create Service</a>
-<hr>
+    <a href="{% url 'services:service_create' %}" class="btn btn-primary">Create Service</a>
+    <hr>
 
-<table border="1">
-    <tr>
-        <th>Name</th>
-        <th>Price</th>
-        <th>Description</th>
-        <th>Actions</th>
-    </tr>
-
-    {% for s in services %}
-    <tr>
-        <td>{{ s.name }}</td>
-        <td>{{ s.price }}</td>
-        <td>{{ s.description }}</td>
-        <td>
-            <a href="{% url 'services:service_update' s.id %}">Update</a>
-            <a href="{% url 'services:service_delete' s.id %}">Delete</a>
-        </td>
-    </tr>
-    {% endfor %}
-</table>
-
-</body>
-</html>
+    <table border="1" style="width:100%; text-align:left; border-collapse: collapse;">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Description</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for s in services %}
+            <tr>
+                <td>{{ s.name }}</td>
+                <td>{{ s.price }}</td>
+                <td>{{ s.description }}</td>
+                <td>
+                    <a href="{% url 'services:service_update' s.id %}">Update</a> | 
+                    <a href="{% url 'services:service_delete' s.id %}" style="color:red;">Delete</a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="4">No services available.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

@@ -1,22 +1,43 @@
 {% extends 'base.html' %}
 {% block content %}
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create Employee</title>
-</head>
-<body>
-    <h1>Create Employee</h1>
-    <a href="{% url 'employee:employeeList' %}">Employee List</a>
-    <form action="" method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button class="btn-primary" type="submit">Submit</button>
-    </form>
-     <a href="{% url 'employee:employeeList' %}" class="back-link">
+
+<div class="split-page">
+
+    <!-- CREATE EMPLOYEE -->
+    <div class="card create-card">
+        <h1>Create Employee</h1>
+
+        <form action="" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="btn-primary" type="submit">Submit</button>
+        </form>
+
+        <a href="{% url 'employee:employeeList' %}" class="back-link">
             ← Back to Employee List
         </a>
-</body>
-</html>
+    </div>
+
+    <!-- SEARCH / FILTER -->
+    <div class="card search-card">
+        <h2>Search & Filter</h2>
+
+        <form method="get" class="search-bar">
+            <input type="text" name="q"
+                   placeholder="Search by name or city..."
+                   value="{{ request.GET.q }}">
+
+            <select name="post">
+                <option value="">All Posts</option>
+                <option value="Manager">Manager</option>
+                <option value="HR">HR</option>
+                <option value="Developer">Developer</option>
+            </select>
+
+            <button type="submit">Search</button>
+        </form>
+    </div>
+
+</div>
+
 {% endblock content %}
